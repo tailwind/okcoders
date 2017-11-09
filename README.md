@@ -4,7 +4,7 @@ Nov 8 2017 - Created JSON blob
 1. Matt Woods was definitely here.
 2. Evan Hobbs
 3. David Scott
-4. 
+4. Patrick found his way here at the last minute
 
 
 #### Design Docs
