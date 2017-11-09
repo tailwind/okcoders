@@ -3,7 +3,7 @@ Nov 8 2017 - Created JSON blob
 ## The Team
 1. Matt Woods was definitely here.
 2. Evan Hobbs
-3. 
+3. David Scott
 4. 
 
 
