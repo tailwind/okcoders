@@ -1,13 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
-import Navbar from 'react-bootstrap/lib/Navbar';
-import Nav from 'react-bootstrap/lib/Nav';
-import NavItem from 'react-bootstrap/lib/NavItem';
-import DropdownButton from 'react-bootstrap/lib/DropdownButton';
-import MenuItem from 'react-bootstrap/lib/MenuItem';
-import {NavDropdown} from 'react-bootstrap';
-
-
+import { Nav, Navbar, NavItem, MenuItem, NavDropdown } from 'react-bootstrap';
 
 class Header extends Component {
   constructor(props) {
