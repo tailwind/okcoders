@@ -17,23 +17,25 @@ class SearchBar extends Component {
   
 	render() {
 		return (
-      <div style={divStyle} className='col-md-6'>
-        <form>
-        <FormGroup
-          controlId="SearchBarForm"
-          bsSize="large"
-        >
-          <ControlLabel>Search Group Boards</ControlLabel>
-          <FormControl
-            type="text"
-            value={this.state.term}
-            placeholder="What Group Boards sound interesting to you?"
-            onChange={event => this.handleChange(event.target.value)} 
-          />
-          <FormControl.Feedback />
-        </FormGroup>
-      </form>
-			</div>
+      <div className='row'>
+        <div style={divStyle} className='col-md-6'>
+          <form>
+          <FormGroup
+            controlId="SearchBarForm"
+            bsSize="large"
+          >
+            <ControlLabel>Search Group Boards</ControlLabel>
+            <FormControl
+              type="text"
+              value={this.state.term}
+              placeholder="What Group Boards sound interesting to you?"
+              onChange={event => this.handleChange(event.target.value)} 
+            />
+            <FormControl.Feedback />
+          </FormGroup>
+        </form>
+        </div>
+      </div>
 		);
 	}
 

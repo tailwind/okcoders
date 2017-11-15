@@ -1,13 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class Footer extends Component {
-  render() {
+const Footer = (props) => {
     return (
-      <div>
-        <h1>This is the Footer.</h1>
+      <div style={{paddingTop: '4rem'}}>
+        <small>Copyright © 2017 Tailwind. All Rights Reserved.</small>
       </div>
-    );
-  }
+      )
 }
 
 export default Footer;
