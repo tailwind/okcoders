@@ -13,7 +13,7 @@ class Header extends Component {
       <Navbar fluid >
         <Navbar.Header>
           <Navbar.Brand>
-            <a href="#">Imperial Turbo Shark Rules the World</a>
+            <a href="#">Group Board Finder</a>
           </Navbar.Brand>
           <Navbar.Toggle />
         </Navbar.Header>
