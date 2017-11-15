@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Header from '../Header/index.js';
+import Hero from '../Hero/index.js';
 import SearchBar from '../SearchBar/index';
 import SearchListing from '../SearchListing/index';
 import Footer from '../Footer/index';
@@ -11,6 +12,7 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
+        <Hero />
         <SearchBar />
         <Switch>
           <Route exact path='/search' component={SearchListing}></Route>
