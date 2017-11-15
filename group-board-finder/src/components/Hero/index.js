@@ -9,7 +9,7 @@ class Hero extends Component {
         <br />
         <h2>Request to join any Group Board with a click</h2>
         <br />
-        <p>The most complete and up-to-date directory of Pinterest Group Boards</p>
+        <h3>The most complete and up-to-date directory of Pinterest Group Boards</h3>
       </Jumbotron>
     );
   }
