@@ -7,10 +7,13 @@ function loadBoardData(){
 	return data;
 }
 
+const uniqueBoardCategories = [...new Set(data.map(category => data["category"]))];
+console.log("here is the unique array" + uniqueBoardCategories);
+
 //assumes category has been selected from the drop-down menu and will then match exactly
 function getDataByCategory(category){
 
-	return _.filter(data, {'category': category})	
+	return _.filter(data, {'category': category})
 
 }
 
