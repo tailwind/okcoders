@@ -29,7 +29,7 @@ buildNavDropDownCategoriesList() {
 render() {
     return (
       <div className="App">
-        <Header buildDropDown={this.buildNavDropDownCategoriesList}/>
+        <Header dropDownList={this.buildNavDropDownCategoriesList()}/>
         <Hero />
         <SearchBar />
         <Switch>
