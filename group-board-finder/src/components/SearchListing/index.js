@@ -1,48 +1,45 @@
 import React, { Component } from 'react';
-import { ListGroup, ListGroupItem, Button, Clearfix } from 'react-bootstrap';
+import { ListGroup} from 'react-bootstrap';
+import { loadBoardData } from '../../api/datamanager.js'
+import _ from 'lodash';
+import SearchListingItem from '../SearchListingItem'
 
 class SearchListing extends Component {
   constructor(props) {
     super(props)
-    this.state = {}
+    this.state = {
+      data: []
+    }
   }
 
+  componentDidMount() {
+    let boardData = loadBoardData();
+    this.setState({ data: boardData })
+  } 
+  // let names = this.state.data.map(board => <li>{board.board_name}</li>);  
+
   render() {
+  let data = this.state.data;
+  
+  const boardList = (data) => {
+    const listItems = data.map(board => {
+      return (
+        <SearchListingItem
+          key={board.board_id}
+          data={board} />
+      );
+    });
+  }
+
+  let names = this.state.data.map(board => <li className="list-group-item">{board.board_name}</li>)
+  // console.log(data)
+
     return (
       <div className='row'>
         <div className='col-xs-12'>
-          <ListGroup>
-            <ListGroupItem header="Amazing Board Title">Tell me more about those group boards I've been looking for recently.   
-                <Button bsStyle="success" className='pull-right'>
-                  Request to Join 
-                </Button>
-              <div className="d-flex w-100 justify-content-between">
-                <h5 className="mb-1">55,000 Folllowers</h5>
-                <small>Last active 3 days ago</small>
-              </div>
-              <Clearfix></Clearfix>
-            </ListGroupItem>
-            <ListGroupItem header="Amazing Board Title">Tell me more about those group boards I've been looking for recently.   
-                <Button bsStyle="success" className='pull-right'>
-                  Request to Join 
-                </Button>
-              <div className="d-flex w-100 justify-content-between">
-                <h5 className="mb-1">55,000 Folllowers</h5>
-                <small>Last active 3 days ago</small>
-              </div>
-              <Clearfix></Clearfix>
-            </ListGroupItem>
-            <ListGroupItem header="Amazing Board Title">Tell me more about those group boards I've been looking for recently.   
-                <Button bsStyle="success" className='pull-right'>
-                  Request to Join 
-                </Button>
-              <div className="d-flex w-100 justify-content-between">
-                <h5 className="mb-1">55,000 Folllowers</h5>
-                <small>Last active 3 days ago</small>
-              </div>
-              <Clearfix></Clearfix>
-            </ListGroupItem>
-          </ListGroup>
+        <ListGroup>
+          <SearchListingItem {...this.state} names={names} data={data} />
+        </ListGroup>
         </div>
       </div>
     );
