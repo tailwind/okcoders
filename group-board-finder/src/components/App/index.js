@@ -5,6 +5,7 @@ import { MenuItem } from 'react-bootstrap';
 import SearchBar from '../SearchBar/index';
 import SearchListing from '../SearchListing/index';
 import Footer from '../Footer/index';
+import {loadBoardData} from '../../api/datamanager';
 
 import { Switch, Route, Link } from 'react-router-dom';
 
@@ -77,9 +78,7 @@ render() {
         <Header dropDownList={this.buildNavDropDownCategoriesList()}/>
         <Hero />
         <SearchBar />
-        <Switch>
-          <Route exact path='/search' component={SearchListing}></Route>
-        </Switch>
+        <SearchListing data={this.state.data} />
         <Footer />
       </div>
     );
