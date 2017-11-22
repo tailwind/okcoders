@@ -6,7 +6,7 @@ import SearchBar from '../SearchBar/index';
 import SearchListing from '../SearchListing/index';
 import Footer from '../Footer/index';
 
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Link } from 'react-router-dom';
 
 class App extends Component {
 
@@ -20,7 +20,7 @@ buildNavDropDownCategoriesList() {
 
     const categorieslist = categories.map((category, i) =>
       // expression goes here:
-    <MenuItem eventKey={i}>{category}</MenuItem>
+    <MenuItem eventKey={i}><Link to={"/category/" + category}>{category}</Link></MenuItem>
     );
 
     return categorieslist;
