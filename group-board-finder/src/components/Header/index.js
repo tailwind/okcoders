@@ -8,6 +8,7 @@ class Header extends Component {
     this.state = {}
   }
 
+
   render() {
     return (
       <Navbar fluid >
@@ -20,11 +21,7 @@ class Header extends Component {
         <Navbar.Collapse>
           <Nav pullRight>
             <NavDropdown eventKey={3} pullRight title="Browse Group Boards" id="nav-dropdown">
-              <MenuItem eventKey={3.1}>Action</MenuItem>
-              <MenuItem eventKey={3.2}>Another action</MenuItem>
-              <MenuItem eventKey={3.3}>Something else here</MenuItem>
-              <MenuItem divider />
-              <MenuItem eventKey={3.4}>Separated link</MenuItem>
+              {this.props.dropDownList}
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>
