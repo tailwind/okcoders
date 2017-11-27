@@ -5,7 +5,7 @@ import { MenuItem } from 'react-bootstrap';
 import SearchBar from '../SearchBar/index';
 import SearchListing from '../SearchListing/index';
 import Footer from '../Footer/index';
-import {loadBoardData} from '../../api/datamanager';
+import {loadBoardData, getDataBySearchTerm, fuzzySearch} from '../../api/datamanager';
 
 import { Switch, Route, Link } from 'react-router-dom';
 
