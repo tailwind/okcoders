@@ -13,15 +13,21 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      data: []
+      data: [],
+      results: []
     }
   }
 
   componentDidMount() {
     let boardData = loadBoardData();
     this.setState({ data: boardData })
+  }
 
-    const boardNames = this.state.data.map(board => board.board_name);
+  // This helper function is passed into the SearchBar component to pass the search results back up to the main App component
+  setTerm = (results) => {
+    this.setState({
+      results: results
+    })
   }
 
   buildNavDropDownCategoriesList() {
@@ -77,8 +83,8 @@ render() {
       <div className="App">
         <Header dropDownList={this.buildNavDropDownCategoriesList()}/>
         <Hero />
-        <SearchBar />
-        <SearchListing data={this.state.data} />
+        <SearchBar setTerm={this.setTerm} />
+        <SearchListing data={this.state.results} />
         <Footer />
       </div>
     );

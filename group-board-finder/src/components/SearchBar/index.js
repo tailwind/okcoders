@@ -7,7 +7,9 @@ import {fuzzySearch} from '../../api/datamanager';
 const divStyle = {
   margin: '20', 
   textAlign: 'center',
-  marginTop: '2rem'
+  marginTop: '2rem',
+  marginLeft: 'auto',
+  marginRight: 'auto'
 };
 
 class SearchBar extends Component {
@@ -15,14 +17,13 @@ class SearchBar extends Component {
 		super(props);
 
 		this.state = { 
-      term: '',
-      results: []
+      term: ''
     };
   }
   
 	render() {
 		return (
-      <div className='row'>
+      <div className='row' style={{display: 'flex'}}>
         <div style={divStyle} className='col-md-6'>
           <form>
           <FormGroup
@@ -48,7 +49,7 @@ class SearchBar extends Component {
   handleChange(term) {
     this.setState({term});
     const results = fuzzySearch(term)
-    this.setState({results: results})
+    this.props.setTerm(results)
 	}
 }
 
