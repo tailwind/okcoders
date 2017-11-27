@@ -1,21 +1,28 @@
 import React, { Component } from 'react';
+import { ListGroupItem, Button, Clearfix, Image } from 'react-bootstrap';
 
-class SearchListingItem extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {}
-  }
+const SearchListingItem = ({ board_id, name, url, description, board_follower_count, board_cover_image_url, category, username, website_url }) => {
 
-  render() {
-    return (
-      <div className='row'>
-        <div className='col-xs-12'>
-          <h1>This is the Search Listing Component.</h1>
+  // This works, but I'm leaving it off until the list length is limited to 25
+  const includeImage = <Image src={board_cover_image_url} responsive />
+  const pinUrl = 'http://www.pinterest.com'
 
-        </div>
-      </div>
-    );
-  }
+  return (
+    <div>
+      <ListGroupItem key={board_id}>
+      <h1><a href={`http://www.pinterest.com${url}`}>{name}</a></h1>
+      <h4>{category}</h4> 
+      <p>{description}</p>
+      <h4>Followers: {board_follower_count}</h4>
+      <h4>Admin: <a href={`${pinUrl}/${username}`}>{username}</a></h4>
+      <h4>Admin Site: <a href={`${website_url}`}>{website_url}</a></h4>  
+          <Button bsStyle="success" className='pull-right'>
+            Request to Join 
+          </Button>
+        <Clearfix></Clearfix>
+      </ListGroupItem>
+    </div>
+  );
 }
 
 export default SearchListingItem;
