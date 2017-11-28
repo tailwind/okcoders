@@ -17,7 +17,7 @@ class SearchBar extends Component {
 		super(props);
 
 		this.state = { 
-      term: ''
+      term: 'food'
     };
   }
   
