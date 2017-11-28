@@ -11,6 +11,7 @@ const SearchListing = (props) => {
   const boardItems = props.data.map((board) => {
     return (
       <SearchListingItem
+        key={board.board_id}
         board_id={board.board_id} 
         name={board.board_name}
         url={board.board_url}
@@ -19,7 +20,11 @@ const SearchListing = (props) => {
         board_cover_image_url={board.board_cover_image_url}
         category={board.category}
         username={board.username}
-        website_url={board.website_url}      
+        website_url={board.website_url}
+        admin_image={board.image}
+        collaborators={board.board_collaborators}
+        pin_count={board.pin_count}
+        repin={board.repin}
       />
     )
   })
