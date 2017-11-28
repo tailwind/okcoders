@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
-import { Nav, Navbar, NavItem, MenuItem, NavDropdown } from 'react-bootstrap';
+import { Nav, Navbar, NavItem, MenuItem, NavDropdown, Image } from 'react-bootstrap';
 
 class Header extends Component {
   constructor(props) {
@@ -11,10 +11,13 @@ class Header extends Component {
 
   render() {
     return (
+      <div>
+      <Link to="/"><Image src="./tailwind-logo.png" responsive /></Link>
+      
       <Navbar fluid >
         <Navbar.Header>
           <Navbar.Brand>
-            <a href="#">Group Board Finder</a>
+            <Link to="/"><Image src="https://d31a41pz1c3dkr.cloudfront.net/img/tailwind-logo.indexed@2x.png" responsive style={{maxHeight: '100%'}} /></Link>
           </Navbar.Brand>
           <Navbar.Toggle />
         </Navbar.Header>
@@ -26,6 +29,7 @@ class Header extends Component {
           </Nav>
         </Navbar.Collapse>
       </Navbar>
+      </div>
     );
   };
 };
