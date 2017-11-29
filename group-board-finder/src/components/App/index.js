@@ -5,7 +5,7 @@ import { MenuItem } from 'react-bootstrap';
 import SearchBar from '../SearchBar/index';
 import SearchListing from '../SearchListing/index';
 import Footer from '../Footer/index';
-import {loadBoardData, getDataBySearchTerm, getCategoryNames, fuzzySearch} from '../../api/datamanager';
+import {loadBoardData, getDataBySearchTerm, getCategoryNames, fuzzySearch, getMostFollowed, convertBoardFollowersToIntegers} from '../../api/datamanager';
 
 import { Switch, Route, Link } from 'react-router-dom';
 
@@ -20,7 +20,14 @@ class App extends Component {
 
   componentDidMount() {
     let boardData = loadBoardData();
-    this.setState({ data: boardData })
+    let initResults = getMostFollowed()
+    this.setState({ data: boardData, results: initResults });
+    /**
+     * this.setState({
+     *  data: loadBoardData(),
+     *  results: getMostFollowed()
+     * })
+     */
   }
 
   // This helper function is passed into the SearchBar component to pass the search results back up to the main App component
