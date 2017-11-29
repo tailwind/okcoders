@@ -48,7 +48,15 @@ render() {
         <Header dropDownList={this.buildNavDropDownCategoriesList()}/>
         <Hero />
         <SearchBar setTerm={this.setTerm} />
-        <SearchListing data={this.state.results} />
+        <Route exact path="/" render={() => (
+          <SearchListing data={this.state.results} />
+        )}
+        <Route exact path="/search/:term" render={(props) => (
+          <SearchListing data={fuzzySearch(props.match.params.term)} />
+        )}
+        <Route exact path="/category/:cat" render={(props) => (
+          <SearchListing data={categorySearch(props.match.params.cat)} />
+        )}
         <Footer />
       </div>
     );
