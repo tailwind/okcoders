@@ -20,10 +20,14 @@ class App extends Component {
 
   componentDidMount() {
     let boardData = loadBoardData();
-    this.setState({ data: boardData })
     let initResults = getMostFollowed()
-    this.setState({ results: initResults })
-    convertBoardFollowersToIntegers()
+    this.setState({ data: boardData, results: initResults });
+    /**
+     * this.setState({
+     *  data: loadBoardData(),
+     *  results: getMostFollowed()
+     * })
+     */
   }
 
   // This helper function is passed into the SearchBar component to pass the search results back up to the main App component

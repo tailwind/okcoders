@@ -56,27 +56,18 @@ function getDataByCategory(category){
 
 }
 
-// Convert 'board_follower_count' property from string to integer
-function convertBoardFollowersToIntegers(){
-  let convert = data.map((board) => {
-    let number = _.toInteger(board.board_follower_count)
-    _.assign(data, number)
-    return console.log(data)
-  })
-  // This needs something to map the new integer value back into the data object for use in the UI
-}
-
 // Return only the top 25 most followed group boards
 function getMostFollowed() {
   // let convertedList = convertBoardFollowersToIntegers()
-  let sort = _.orderBy(data, ['board_follower_count'] ['desc']);
-  console.log('sort', sort)
-  let topResults = _.slice(sort, 0, 25) //slices array to only return the first 25 
+  // let sort = _.orderBy(data, ['board_follower_count'],['asc']);
+  let sortedData = data.sort((a,b) => b.board_follower_count - a.board_follower_count);
+  // console.log('sort', sortedData)
+  let topResults = _.slice(sortedData, 0, 25) //slices array to only return the first 25 
   return topResults
-  console.log(topResults)
+  console.log("top results", topResults)
 }
 
-//Currently only returns an exact match between searchTeam and description field. I'll figure out fancier Javasript in the morning
+//Currentlyaonly returns an exact match between searchTeam and description field. I'll figure out fancier Javasript in the morning
 function getDataBySearchTerm(searchTerm){
 	return _.filter(data, {'board_name':searchTerm})
 }
@@ -111,4 +102,3 @@ export {getDataBySearchTerm}
 export {fuzzySearch}
 export {getCategoryNames}
 export {getMostFollowed}
-export {convertBoardFollowersToIntegers}
