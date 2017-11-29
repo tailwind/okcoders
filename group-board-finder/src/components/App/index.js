@@ -4,6 +4,7 @@ import Hero from '../Hero/index.js';
 import { MenuItem } from 'react-bootstrap';
 import SearchBar from '../SearchBar/index';
 import SearchListing from '../SearchListing/index';
+import CategoryListing from '../CategoryListing/index';
 import Footer from '../Footer/index';
 import {loadBoardData, getDataBySearchTerm, getCategoryNames, fuzzySearch, getMostFollowed, convertBoardFollowersToIntegers} from '../../api/datamanager';
 
@@ -22,12 +23,6 @@ class App extends Component {
     let boardData = loadBoardData();
     let initResults = getMostFollowed()
     this.setState({ data: boardData, results: initResults });
-    /**
-     * this.setState({
-     *  data: loadBoardData(),
-     *  results: getMostFollowed()
-     * })
-     */
   }
 
   // This helper function is passed into the SearchBar component to pass the search results back up to the main App component
