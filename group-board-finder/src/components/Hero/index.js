@@ -6,6 +6,9 @@ class Hero extends Component {
   render() {
     return (
       <Switch>
+
+{/* Display Hero on homepage */}   
+
         <Route exact path="/" render={() => (
           <Jumbotron>
           <h1>Pinterest Group Board Finder</h1>
@@ -16,6 +19,7 @@ class Hero extends Component {
         </Jumbotron>
         )}/>
 
+{/* Display Hero on Category results page */}  
         <Route exact path="/category/:term" render={(props) => (
           <Jumbotron>
           <h1>Explore Top {props.match.params.term} Pinterest Group Boards</h1>
@@ -26,6 +30,7 @@ class Hero extends Component {
         </Jumbotron>
         )}/>
 
+{/* Display Hero on keyword search results page */}  
         <Route exact path="/results/:term" render={(props) => (
           <Jumbotron>
           <h1>Search Results: {props.match.params.term} Pinterest Group Boards</h1>
@@ -41,18 +46,6 @@ class Hero extends Component {
     
   }
 }
-    
 
-/*
-      <Jumbotron>
-        <h1>Pinterest Group Board Finder</h1>
-        <br />
-        <h2>Request to join any Group Board with a click</h2>
-        <br />
-        <h3>The most complete and up-to-date directory of Pinterest Group Boards</h3>
-      </Jumbotron>
-    );
-  }
-} */
 
 export default Hero;
