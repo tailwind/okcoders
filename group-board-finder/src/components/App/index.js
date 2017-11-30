@@ -42,7 +42,7 @@ class App extends Component {
     const categories = getCategoryNames()
       const categorieslist = categories.map((category, i) =>
         // expression goes here:
-        <Link to={"/category/" + category.value}><MenuItem eventKey={i}><Link to={"/category/" + category.value}>{category.name}</Link></MenuItem></Link>
+        <Link to={"/category/" + category.name}><MenuItem eventKey={i}><Link to={"/category/" + category.name}>{category.name}</Link></MenuItem></Link>
       );
       return categorieslist;
     }
