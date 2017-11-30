@@ -6,7 +6,7 @@ import SearchBar from '../SearchBar/index';
 import SearchListing from '../SearchListing/index';
 import CategoryListing from '../CategoryListing/index';
 import Footer from '../Footer/index';
-import {loadBoardData, getDataBySearchTerm, getCategoryNames, fuzzySearch, getMostFollowed, convertBoardFollowersToIntegers} from '../../api/datamanager';
+import {loadBoardData, getDataBySearchTerm, getCategoryNames, fuzzySearch, getMostFollowed, getDataByCategory} from '../../api/datamanager';
 
 import { Switch, Route, Link } from 'react-router-dom';
 
@@ -37,7 +37,7 @@ class App extends Component {
     const categories = getCategoryNames()
       const categorieslist = categories.map((category, i) =>
         // expression goes here:
-      <MenuItem eventKey={i}><Link to={"/" + category.value}>{category.name}</Link></MenuItem>
+      <MenuItem eventKey={i}><Link to={"/category/" + category.value}>{category.name}</Link></MenuItem>
       );
       return categorieslist;
     }
@@ -50,13 +50,13 @@ render() {
         <SearchBar setTerm={this.setTerm} />
         <Route exact path="/" render={() => (
           <SearchListing data={this.state.results} />
-        )}
+        )} />
         <Route exact path="/search/:term" render={(props) => (
           <SearchListing data={fuzzySearch(props.match.params.term)} />
-        )}
+        )} />
         <Route exact path="/category/:cat" render={(props) => (
-          <SearchListing data={categorySearch(props.match.params.cat)} />
-        )}
+          <CategoryListing data={getDataByCategory(props.match.params.cat)} />
+        )} />
         <Footer />
       </div>
     );

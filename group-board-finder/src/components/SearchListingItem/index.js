@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { ListGroupItem, Button, Clearfix, Image, Tooltip, OverlayTrigger } from 'react-bootstrap';
 import _ from 'lodash';
 import Icon from './question.svg';
+import { Link } from 'react-router-dom';
 
 const SearchListingItem = ({ board_id, name, url, description, board_follower_count, board_cover_image_url, category, username, website_url, admin_image, collaborators, pin_count, repin }) => {
 
@@ -16,13 +17,14 @@ const SearchListingItem = ({ board_id, name, url, description, board_follower_co
     <div>
       <ListGroupItem key={board_id}>
       <h1>
+      {includeImage}
       <OverlayTrigger placement="bottom" overlay={<Tooltip id="tooltip">{description}</Tooltip>}>
       <a href={`http://www.pinterest.com${url}`}>
         {name}
       </a>
       </OverlayTrigger>
       </h1>
-      <h4>{category}</h4> 
+      <Link to={`/category/${category}`}><h4>{category}</h4></Link>
       <p>{description}</p>
       <h4>Followers: {board_follower_count}</h4>
       <h4>collaborators: {collaborators}</h4>

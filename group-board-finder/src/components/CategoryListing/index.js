@@ -7,7 +7,7 @@ import SearchListingItem from '../SearchListingItem'
 const CategoryListing = (props) => {
   
   console.log(props.data);
-  
+
   const boardItems = props.data.map((board) => {
     return (
       <SearchListingItem

@@ -2,14 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './components/App/index';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter, Router, Route, Link } from 'react-router-dom';
 
 // import {loadBoardData} from './api/datamanager.js'
 
 ReactDOM.render((
-<Router>
+<BrowserRouter>
   <App />
-</Router>)
+</BrowserRouter>)
 , document.getElementById('root'));
 
 // const data = loadBoardData();
