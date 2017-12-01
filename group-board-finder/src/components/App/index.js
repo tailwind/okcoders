@@ -22,13 +22,21 @@ class App extends Component {
   componentDidMount() {
     let boardData = loadBoardData();
     let initResults = getMostFollowed()
-    this.setState({ data: boardData, results: initResults });
+    this.setState({ data: boardData, results: initResults.top25 });
   }
 
   // This helper function is passed into the SearchBar component to pass the search results back up to the main App component
   setTerm = (results) => {
     this.setState({
       results: results
+    })
+  }
+
+// This function updates the state of results to increase from the default 25 to show 100 total results
+  moreResults = () => {
+    let initResults = getMostFollowed()
+    this.setState({
+      results: initResults.top100
     })
   }
 
@@ -49,7 +57,7 @@ render() {
         <Hero />
         <SearchBar setTerm={this.setTerm} />
         <Route exact path="/" render={() => (
-          <SearchListing data={this.state.results} />
+          <SearchListing data={this.state.results} moreResults={this.moreResults} />
         )} />
         <Route exact path="/search/:term" render={(props) => (
           <SearchListing data={fuzzySearch(props.match.params.term)} />

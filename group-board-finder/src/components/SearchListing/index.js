@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import { ListGroup } from 'react-bootstrap';
+import { ListGroup, Button } from 'react-bootstrap';
 import { loadBoardData } from '../../api/datamanager.js'
 import _ from 'lodash';
 import SearchListingItem from '../SearchListingItem'
 
 const SearchListing = (props) => {
   
-  console.log(props.data);
+  // console.log('props', props.data);
   
   const boardItems = props.data.map((board) => {
     return (
@@ -35,6 +35,7 @@ const SearchListing = (props) => {
         <ListGroup>
           {boardItems}
         </ListGroup>
+        <Button bsStyle="primary" onClick={props.moreResults}>Show More</Button>
         </div>
       </div>
     );
