@@ -4,11 +4,18 @@ import { loadBoardData } from '../../api/datamanager.js'
 import _ from 'lodash';
 import SearchListingItem from '../SearchListingItem'
 
-const SearchListing = (props) => {
-  
+class SearchListing extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      displayShowMoreBtn: false
+    }
+  }
+
+render(props) {
   // console.log('props', props.data);
-  
-  const boardItems = props.data.map((board) => {
+
+  const boardItems = this.props.data.map((board) => {
     return (
       <SearchListingItem
         key={board.board_id}
@@ -35,10 +42,11 @@ const SearchListing = (props) => {
         <ListGroup>
           {boardItems}
         </ListGroup>
-        <Button bsStyle="primary" onClick={props.moreResults}>Show More</Button>
+        <Button bsStyle="primary" onClick={this.props.moreResults}>Show More</Button>
         </div>
       </div>
     );
+  }
 }
 
 export default SearchListing;

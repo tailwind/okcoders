@@ -56,7 +56,7 @@ render() {
         <Header dropDownList={this.buildNavDropDownCategoriesList()}/>
         <Hero />
         <SearchBar setTerm={this.setTerm} />
-        <Route exact path="/" render={() => (
+        <Route exact path="/" render={(props) => (
           <SearchListing data={this.state.results} moreResults={this.moreResults} />
         )} />
         <Route exact path="/search/:term" render={(props) => (
