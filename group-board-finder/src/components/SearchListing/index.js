@@ -8,11 +8,16 @@ class SearchListing extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      displayShowMoreBtn: false
+      showMore: true
     }
   }
 
-render(props) {
+  showMoreBtnClicked(props) {
+    props.moreResults()
+    this.setState({ showMore: false })
+  } 
+
+  render(props) {
   // console.log('props', props.data);
 
   const boardItems = this.props.data.map((board) => {
@@ -42,7 +47,7 @@ render(props) {
         <ListGroup>
           {boardItems}
         </ListGroup>
-        <Button bsStyle="primary" onClick={this.props.moreResults}>Show More</Button>
+          {this.state.showMore ? <Button bsStyle="primary" onClick={this.showMoreBtnClicked}>Show More</Button> : null}
         </div>
       </div>
     );
