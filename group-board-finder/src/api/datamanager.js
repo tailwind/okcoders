@@ -62,7 +62,7 @@ function getMostFollowed() {
   // console.log('sort', sortedData)
   let topResults = _.slice(sortedData, 0, 25) //slices array to only return the first 25 
   return topResults
-  console.log("top results", topResults)
+  // console.log("top results", topResults)
 }
 
 //Currentlyaonly returns an exact match between searchTeam and description field. I'll figure out fancier Javasript in the morning
