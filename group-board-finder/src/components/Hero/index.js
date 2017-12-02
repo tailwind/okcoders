@@ -39,16 +39,16 @@ class Hero extends Component {
 
         {/* Display Hero on Category results page */}  
 
-        <Route exact path="/category/:category" render={(props) => (
+        <Route exact path="/category/:categoryName/:categoryValue" render={(props) => (
           <div style={containerStyle}>
             <Jumbotron style={jumbotronStyle}>
-              <h1 style={textStyle}>Explore Top {props.match.params.category} Pinterest Group Boards</h1>
+              <h1 style={textStyle}>Explore Top {props.match.params.categoryName} Pinterest Group Boards</h1>
               <br />
               <br />
               <h2 style={textStyle}>Request to join any Group Board with a click</h2>
               <br />
               <br />
-        <h3 style={textStyle}>[Number] {props.match.params.category} Group Boards found!</h3>
+        <h3 style={textStyle}> [Number] {props.match.params.categoryName} Group Boards found!</h3>
             </Jumbotron>
           </div>
         )}/>
