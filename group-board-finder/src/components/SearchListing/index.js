@@ -13,8 +13,12 @@ class SearchListing extends Component {
   }
 
   showMoreBtnClicked = (props) => {
+   if (this.props.routeMatch === '/') {
     this.props.moreResults(getMostFollowed())
-    this.setState({ showMore: false })
+   } else {
+     this.props.moreResults(this.props.data)
+   }    
+   this.setState({ showMore: false })
   } 
 
   render(props) {

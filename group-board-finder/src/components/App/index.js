@@ -56,10 +56,10 @@ render() {
         <Hero />
         <SearchBar setTerm={this.setTerm} />
         <Route exact path="/" render={(props) => (
-          <SearchListing data={this.state.results} moreResults={this.moreResults} />
+          <SearchListing data={this.state.results} moreResults={this.moreResults} routeMatch={props.match.path} />
         )} />
         <Route exact path="/search/:term" render={(props) => (
-          <SearchListing data={fuzzySearch(props.match.params.term)} moreResults={this.moreResults} />
+          <SearchListing data={fuzzySearch(props.match.params.term)} moreResults={this.moreResults} routeMatch={props.match.path} />
         )} />
         <Route exact path="/category/:cat" render={(props) => (
           <CategoryListing data={getDataByCategory(props.match.params.cat)} />
