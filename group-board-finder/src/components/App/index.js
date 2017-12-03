@@ -28,7 +28,7 @@ class App extends Component {
   // This helper function is passed into the SearchBar component to pass the search results back up to the main App component
   setTerm = (results) => {
     this.setState({
-      results: results
+      results: results.top25
     })
   }
 
@@ -62,7 +62,7 @@ render() {
           <SearchListing data={fuzzySearch(props.match.params.term)} moreResults={this.moreResults} />
         )} />
         <Route exact path="/category/:cat" render={(props) => (
-          <CategoryListing data={getDataByCategory(props.match.params.cat)} moreResults={this.moreResults}/>
+          <CategoryListing data={getDataByCategory(props.match.params.cat)} />
         )} />
         <Footer />
       </div>

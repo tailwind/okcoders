@@ -4,19 +4,13 @@ import { loadBoardData } from '../../api/datamanager.js'
 import _ from 'lodash';
 import SearchListingItem from '../SearchListingItem'
 
-class SearchListing extends Component {
+class CategoryListing extends Component {
   constructor(props) {
     super(props)
     this.state = {
       showMore: true
     }
   }
-
-  showMoreBtnClicked = (props) => {
-    const results = this.props.data
-    this.props.moreResults(results)
-    this.setState({ showMore: false })
-  } 
 
   render(props) {
   // console.log('props', props.data);
@@ -48,11 +42,10 @@ class SearchListing extends Component {
         <ListGroup>
           {boardItems}
         </ListGroup>
-          {this.state.showMore ? <Button bsStyle="primary" onClick={this.showMoreBtnClicked}>Show More</Button> : null}
         </div>
       </div>
     );
   }
 }
 
-export default SearchListing;
+export default CategoryListing;
