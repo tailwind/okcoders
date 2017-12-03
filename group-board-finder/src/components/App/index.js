@@ -60,10 +60,10 @@ render() {
           <SearchListing data={this.state.results} moreResults={this.moreResults} />
         )} />
         <Route exact path="/search/:term" render={(props) => (
-          <SearchListing data={fuzzySearch(props.match.params.term)} />
+          <SearchListing data={fuzzySearch(props.match.params.term)} moreResults={this.moreResults} />
         )} />
         <Route exact path="/category/:cat" render={(props) => (
-          <CategoryListing data={getDataByCategory(props.match.params.cat)} />
+          <CategoryListing data={getDataByCategory(props.match.params.cat)} moreResults={this.moreResults}/>
         )} />
         <Footer />
       </div>

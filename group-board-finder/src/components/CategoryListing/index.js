@@ -1,14 +1,27 @@
 import React, { Component } from 'react';
-import { ListGroup } from 'react-bootstrap';
+import { ListGroup, Button } from 'react-bootstrap';
 import { loadBoardData } from '../../api/datamanager.js'
 import _ from 'lodash';
 import SearchListingItem from '../SearchListingItem'
 
-const CategoryListing = (props) => {
-  
-  console.log(props.data);
+class SearchListing extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      showMore: true
+    }
+  }
 
-  const boardItems = props.data.map((board) => {
+  showMoreBtnClicked = (props) => {
+    const results = this.props.data
+    this.props.moreResults(results)
+    this.setState({ showMore: false })
+  } 
+
+  render(props) {
+  // console.log('props', props.data);
+
+  const boardItems = this.props.data.map((board) => {
     return (
       <SearchListingItem
         key={board.board_id}
@@ -35,9 +48,11 @@ const CategoryListing = (props) => {
         <ListGroup>
           {boardItems}
         </ListGroup>
+          {this.state.showMore ? <Button bsStyle="primary" onClick={this.showMoreBtnClicked}>Show More</Button> : null}
         </div>
       </div>
     );
+  }
 }
 
-export default CategoryListing;
+export default SearchListing;

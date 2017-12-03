@@ -12,8 +12,9 @@ class SearchListing extends Component {
     }
   }
 
-  showMoreBtnClicked(props) {
-    props.moreResults()
+  showMoreBtnClicked = (props) => {
+    const results = this.props.data
+    this.props.moreResults(results)
     this.setState({ showMore: false })
   } 
 
