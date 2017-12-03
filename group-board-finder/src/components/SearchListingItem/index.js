@@ -12,7 +12,8 @@ class SearchListingItem extends Component {
     this.state = {
       board : props.data,
       showModal : false,
-      virality : viralityScore
+      virality : viralityScore,
+      joinRequestSent: false
     };
   }
 

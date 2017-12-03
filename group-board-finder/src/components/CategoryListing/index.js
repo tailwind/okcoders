@@ -1,7 +1,5 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { ListGroup } from 'react-bootstrap';
-import { loadBoardData } from '../../api/datamanager.js'
-import _ from 'lodash';
 import SearchListingItem from '../SearchListingItem'
 
 const CategoryListing = (props) => {

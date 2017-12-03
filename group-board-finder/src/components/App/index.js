@@ -6,7 +6,7 @@ import SearchBar from '../SearchBar/index';
 import SearchListing from '../SearchListing/index';
 import CategoryListing from '../CategoryListing/index';
 import Footer from '../Footer/index';
-import {loadBoardData, getDataBySearchTerm, getCategoryNames, fuzzySearch, getMostFollowed, getDataByCategory} from '../../api/datamanager';
+import {loadBoardData, getCategoryNames, fuzzySearch, getMostFollowed, getDataByCategory} from '../../api/datamanager';
 
 import { Switch, Route, Link } from 'react-router-dom';
 
