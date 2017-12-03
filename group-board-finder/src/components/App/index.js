@@ -33,10 +33,9 @@ class App extends Component {
   }
 
 // This function updates the state of results to increase from the default 25 to show 100 total results
-  moreResults = () => {
-    let initResults = getMostFollowed()
+  moreResults = (results) => {
     this.setState({
-      results: initResults.top100
+      results: results.top100
     })
   }
 

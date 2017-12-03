@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { ListGroup, Button } from 'react-bootstrap';
-import { loadBoardData } from '../../api/datamanager.js'
+import { loadBoardData, getMostFollowed } from '../../api/datamanager.js'
 import _ from 'lodash';
 import SearchListingItem from '../SearchListingItem'
 
@@ -13,8 +13,7 @@ class SearchListing extends Component {
   }
 
   showMoreBtnClicked = (props) => {
-    const results = this.props.data
-    this.props.moreResults(results)
+    this.props.moreResults(getMostFollowed())
     this.setState({ showMore: false })
   } 
 
