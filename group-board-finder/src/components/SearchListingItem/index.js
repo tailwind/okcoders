@@ -8,16 +8,20 @@ class SearchListingItem extends Component {
   constructor(props){
     super(props)
 
+    const viralityScore = _.floor(this.props.data.repin/this.props.data.pin_count)
     this.state = {
       board : props.data,
-      showModal : false 
+      showModal : false,
+      virality : viralityScore
     };
+  }
 
-
-    const pinUrl = 'http://www.pinterest.com'
-    const adminUrl = `${pinUrl}/${this.state.board.username}`
-    const viralityScore = _.floor(this.state.board.repin/this.state.board.pin_count)
-
+  openModal= () => {
+    this.setState({showModal : true});
+  }
+  
+  closeModal= () => {
+    this.setState({showModal: false})
   }
 
 
@@ -36,21 +40,37 @@ render(){
       <Link to={`/category/${this.state.board.category}`}><h4>{this.state.board.category}</h4></Link>
       <p>{this.state.board.description}</p>
       <h4>followers: {this.state.board.board_follower_count}</h4>
-      <h4>collaborators: {this.state.board.collaborators}</h4>
+      <h4>collaborators: {this.state.board.board_collaborators}</h4>
       <h4>pin count: {this.state.board.pin_count}</h4>
       <h4>
        <OverlayTrigger placement="bottom" overlay={<Tooltip id="tooltip">We calculated this number by dividing the repins by total pins.</Tooltip>}>
           <img src={Icon} style={{height: '1em'}} /> 
         </OverlayTrigger>
-           Virality Score: {this.viralityScore}
+           Virality Score: {this.state.virality}
       </h4>     
-      <a href={this.adminUrl}><Image src={this.state.board.admin_image} responsive circle /></a>
-      <h4>Admin: <a href={this.adminUrl}>{this.state.board.username}</a></h4>
+      <a href={`http://www.pinterest.com/${this.state.board.username}`}><Image src={this.state.board.image} responsive circle /></a>
+      <h4>Admin: <a href={`http://www.pinterest.com/${this.state.board.username}`}>{this.state.board.username}</a></h4>
       <h4>Admin Site: <a href={`${this.state.board.website_url}`}>{this.state.board.website_url}</a></h4>  
 
-          <Button bsStyle="success" className='pull-right' >
+          <Button bsStyle="success" className='pull-right' onClick={this.openModal} >
             Request to Join 
           </Button>
+
+          <Modal show={this.state.showModal} onHide={this.closeModal}>
+          <Modal.Header closeButton>
+            <Modal.Title>Request to join this Group Board</Modal.Title>
+          </Modal.Header>
+            <Modal.Body>
+
+            </Modal.Body>
+            <Modal.Footer>
+              <Button onClick={this.closeModal}> close </Button>
+            </Modal.Footer>
+          </Modal>
+
+
+
+
         <Clearfix></Clearfix>
       </ListGroupItem>
     </div>
