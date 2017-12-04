@@ -14,7 +14,7 @@ const SearchListingItem = ({ board_id, name, url, description, board_follower_co
   // const tooltip = {return (<Tooltip>{description}</Tooltip>)}
 
   return (
-    <div>
+    <div className='animated fadeInUp'>
       <ListGroupItem key={board_id}>
       <h1>
       {includeImage}
