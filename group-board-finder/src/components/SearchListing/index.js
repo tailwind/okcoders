@@ -25,7 +25,7 @@ class SearchListing extends Component {
 
   const boardItems = this.props.data.map((board) => {
     return (
-      <SearchListingItem data={board}/>
+      <SearchListingItem data={board} key={board.board_id}/>
     )
   })
 

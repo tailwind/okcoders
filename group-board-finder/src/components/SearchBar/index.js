@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { FormGroup, FormControl, ControlLabel } from 'react-bootstrap';
-import _ from 'lodash';
 import {fuzzySearch} from '../../api/datamanager';
 
 // This styles the input parent div

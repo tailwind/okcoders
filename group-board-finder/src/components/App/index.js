@@ -8,7 +8,7 @@ import CategoryListing from '../CategoryListing/index';
 import Footer from '../Footer/index';
 import {loadBoardData, getCategoryNames, fuzzySearch, getMostFollowed, getDataByCategory} from '../../api/datamanager';
 
-import { Switch, Route, Link } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
 
 class App extends Component {
   constructor(props) {

@@ -39,7 +39,7 @@ render(){
   return (
 
     <div className='animated fadeInUp'>
-      <ListGroupItem key={this.state.board_id}>
+      <ListGroupItem key={this.state.board.board_id}>
       <h1>
       <Image src={this.state.board.board_cover_image_url} responsive />
       <OverlayTrigger placement="bottom" overlay={<Tooltip id="tooltip">{this.state.board.description}</Tooltip>}>
@@ -55,7 +55,7 @@ render(){
       <h4>pin count: {this.state.board.pin_count}</h4>
       <h4>
        <OverlayTrigger placement="bottom" overlay={<Tooltip id="tooltip">We calculated this number by dividing the repins by total pins.</Tooltip>}>
-          <img src={Icon} style={{height: '1em'}} /> 
+          <img src={Icon} alt=""  style={{height: '1em'}} /> 
         </OverlayTrigger>
            Virality Score: {this.state.virality}
       </h4>     
