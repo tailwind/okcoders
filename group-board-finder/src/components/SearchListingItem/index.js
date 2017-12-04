@@ -37,8 +37,9 @@ class SearchListingItem extends Component {
 
 render(){
   return (
-    <div>
-      <ListGroupItem key={this.state.board.board_id}>
+
+    <div className='animated fadeInUp'>
+      <ListGroupItem key={board_id}>
       <h1>
       <Image src={this.state.board.board_cover_image_url} responsive />
       <OverlayTrigger placement="bottom" overlay={<Tooltip id="tooltip">{this.state.board.description}</Tooltip>}>

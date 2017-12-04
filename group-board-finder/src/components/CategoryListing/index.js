@@ -1,12 +1,20 @@
 import React from 'react';
 import { ListGroup } from 'react-bootstrap';
+
 import SearchListingItem from '../SearchListingItem'
 
-const CategoryListing = (props) => {
-  
-  console.log(props.data);
+class CategoryListing extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      showMore: true
+    }
+  }
 
-  const boardItems = props.data.map((board) => {
+  render(props) {
+  // console.log('props', props.data);
+
+  const boardItems = this.props.data.map((board) => {
     return (
       <SearchListingItem data={board} />
     )
@@ -21,6 +29,7 @@ const CategoryListing = (props) => {
         </div>
       </div>
     );
+  }
 }
 
 export default CategoryListing;
