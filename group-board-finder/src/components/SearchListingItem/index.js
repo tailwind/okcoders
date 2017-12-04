@@ -39,7 +39,7 @@ render(){
   return (
 
     <div className='animated fadeInUp'>
-      <ListGroupItem key={board_id}>
+      <ListGroupItem key={this.state.board_id}>
       <h1>
       <Image src={this.state.board.board_cover_image_url} responsive />
       <OverlayTrigger placement="bottom" overlay={<Tooltip id="tooltip">{this.state.board.description}</Tooltip>}>

@@ -1,6 +1,6 @@
-import React from 'react';
-import { ListGroup } from 'react-bootstrap';
-
+import React, {Component} from 'react';
+import { ListGroup, Button } from 'react-bootstrap';
+import {getMostFollowed} from '../../api/datamanager';
 import SearchListingItem from '../SearchListingItem'
 
 class SearchListing extends Component {

@@ -99,9 +99,10 @@ function fuzzySearch(term){
 
   let results = {
     top25: top25Results,
-    top100: top100Results
+    top100: top100Results,
+    arrayLength: unfilteredResults.length
   }
-  
+  console.log('fuzzy results',results)
   // Console logs search results for debugging
   // console.log('Top 25 Search Results:', topResults)
   return results
