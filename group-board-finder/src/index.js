@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './components/App/index';
-import { BrowserRouter, Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 
 // import {loadBoardData} from './api/datamanager.js'
 
