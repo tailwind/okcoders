@@ -37,7 +37,7 @@ class App extends Component {
     const categories = getCategoryNames()
       const categorieslist = categories.map((category, i) =>
         // expression goes here:
-      <MenuItem eventKey={i}><Link to={"/category/" + category.value}>{category.name}</Link></MenuItem>
+        <Link to={"/category/" + category.name + "/" + category.value}><MenuItem eventKey={i}><Link to={"/category/" + category.name + "/" + category.value}>{category.name}</Link></MenuItem></Link>
       );
       return categorieslist;
     }
@@ -54,7 +54,7 @@ render() {
         <Route exact path="/search/:term" render={(props) => (
           <SearchListing data={fuzzySearch(props.match.params.term)} />
         )} />
-        <Route exact path="/category/:cat" render={(props) => (
+        <Route exact path="/category/:name/:cat" render={(props) => (
           <CategoryListing data={getDataByCategory(props.match.params.cat)} />
         )} />
         <Footer />

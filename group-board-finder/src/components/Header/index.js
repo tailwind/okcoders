@@ -23,7 +23,7 @@ class Header extends Component {
         </Navbar.Header>
         <Navbar.Collapse>
           <Nav pullRight>
-            <NavDropdown eventKey={3} pullRight title="Browse Group Boards" id="nav-dropdown">
+            <NavDropdown style={{fontWeight: "bold"}} eventKey={3} pullRight title="Browse Group Boards" id="nav-dropdown">
               {this.props.dropDownList}
             </NavDropdown>
           </Nav>
