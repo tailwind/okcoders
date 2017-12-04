@@ -17,14 +17,14 @@ class SearchBar extends Component {
 		super(props);
 
 		this.state = { 
-      term: 'food'
+      term: ''
     };
   }
   
 	render() {
 		return (
       <div className='row' style={{display: 'flex'}}>
-        <div style={divStyle} className='col-md-6'>
+        <div style={divStyle} className='col-md-6 animated fadeInUp'>
           <form>
           <FormGroup
             controlId="SearchBarForm"

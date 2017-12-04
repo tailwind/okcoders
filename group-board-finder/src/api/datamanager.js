@@ -50,8 +50,8 @@ function getCategoryNames() {
 //assumes category has been selected from the drop-down menu and will then match exactly
 function getDataByCategory(category){
 
-	return _.filter(data, {'category': category})
-
+  return _.filter(data, {'category': category})
+  
 }
 
 // Return only the top 25 most followed group boards
@@ -60,12 +60,19 @@ function getMostFollowed() {
   // let sort = _.orderBy(data, ['board_follower_count'],['asc']);
   let sortedData = data.sort((a,b) => b.board_follower_count - a.board_follower_count);
   // console.log('sort', sortedData)
-  let topResults = _.slice(sortedData, 0, 25) //slices array to only return the first 25 
-  return topResults
-  // console.log("top results", topResults)
+  let top25Results = _.slice(sortedData, 0, 25) //slices array to only return the first 25 
+  let top100Results = _.slice(sortedData, 0, 100) //slices array to only return the first 100 
+
+  let results = {
+    top25: top25Results,
+    top100: top100Results
+  }
+
+  return results
+  console.log("top results", results)
 }
 
-//Currentlyaonly returns an exact match between searchTeam and description field. I'll figure out fancier Javasript in the morning
+//Currently only returns an exact match between searchTeam and description field. I'll figure out fancier Javasript in the morning
 function getDataBySearchTerm(searchTerm){
 	return _.filter(data, {'board_name':searchTerm})
 }
@@ -86,11 +93,18 @@ function fuzzySearch(term){
   };
   let fuse = new Fuse(data, options); // "data" is the source to search, an array of objects in this case
   let unfilteredResults = fuse.search(term); //returns all matched items
-  let topResults = _.slice(unfilteredResults, 0, 25) //slices array to only return the first 25 entries
+  // let topResults = _.slice(unfilteredResults, 0, 25) //slices array to only return the first 25 entries
+  let top25Results = _.slice(unfilteredResults, 0, 25) //slices array to only return the first 25 
+  let top100Results = _.slice(unfilteredResults, 0, 100) //slices array to only return the first 100 
+
+  let results = {
+    top25: top25Results,
+    top100: top100Results
+  }
   
   // Console logs search results for debugging
   // console.log('Top 25 Search Results:', topResults)
-  return topResults
+  return results
 }
 
 //there's probably a better way to do this

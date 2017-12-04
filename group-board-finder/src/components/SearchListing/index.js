@@ -1,14 +1,30 @@
 import React, { Component } from 'react';
-import { ListGroup } from 'react-bootstrap';
-import { loadBoardData } from '../../api/datamanager.js'
+import { ListGroup, Button } from 'react-bootstrap';
+import { loadBoardData, getMostFollowed } from '../../api/datamanager.js'
 import _ from 'lodash';
 import SearchListingItem from '../SearchListingItem'
 
-const SearchListing = (props) => {
-  
-  console.log(props.data);
-  
-  const boardItems = props.data.map((board) => {
+class SearchListing extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      showMore: true
+    }
+  }
+
+  showMoreBtnClicked = (props) => {
+   if (this.props.routeMatch === '/') {
+    this.props.moreResults(getMostFollowed())
+   } else {
+     this.props.moreResults(this.props.data)
+   }    
+   this.setState({ showMore: false })
+  } 
+
+  render(props) {
+  // console.log('props', props.data);
+
+  const boardItems = this.props.data.map((board) => {
     return (
       <SearchListingItem
         key={board.board_id}
@@ -35,9 +51,11 @@ const SearchListing = (props) => {
         <ListGroup>
           {boardItems}
         </ListGroup>
+          {this.state.showMore ? <Button bsStyle="primary" onClick={this.showMoreBtnClicked}>Show More</Button> : null}
         </div>
       </div>
     );
+  }
 }
 
 export default SearchListing;
