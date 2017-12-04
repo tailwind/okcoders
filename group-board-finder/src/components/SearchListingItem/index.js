@@ -25,6 +25,15 @@ class SearchListingItem extends Component {
     this.setState({showModal: false})
   }
 
+  sendMessage= () =>{
+    this.setState({joinRequestSent : true})
+    this.closeModal()
+  }
+
+  cancelJoinRequest= () =>{
+    this.setState({joinRequestSent : false})
+  }
+
 
 render(){
   return (
@@ -53,19 +62,20 @@ render(){
       <h4>Admin: <a href={`http://www.pinterest.com/${this.state.board.username}`}>{this.state.board.username}</a></h4>
       <h4>Admin Site: <a href={`${this.state.board.website_url}`}>{this.state.board.website_url}</a></h4>  
 
-          <Button bsStyle="success" className='pull-right' onClick={this.openModal} >
-            Request to Join 
-          </Button>
+          {!this.state.joinRequestSent && (<Button bsStyle="success" className='pull-right' onClick={this.openModal} > Request to Join  </Button>)}
+          {this.state.joinRequestSent && (<Button bsStyle="danger" className='pull-right' onClick={this.cancelJoinRequest} > Cancel Join Request  </Button>)}
 
           <Modal show={this.state.showModal} onHide={this.closeModal}>
           <Modal.Header closeButton>
             <Modal.Title>Request to join this Group Board</Modal.Title>
           </Modal.Header>
             <Modal.Body>
-
+              <textarea cols="50" rows="10" placeholder="Enter a message to the group board owner.">
+              </textarea>
             </Modal.Body>
             <Modal.Footer>
-              <Button onClick={this.closeModal}> close </Button>
+              <Button onClick={this.closeModal}> Close </Button>
+              <Button bsStyle="success" onClick={this.sendMessage}> Send </Button>
             </Modal.Footer>
           </Modal>
 
