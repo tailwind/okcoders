@@ -34,7 +34,7 @@ class SearchBar extends Component {
             <FormControl
               type="text"
               value={this.state.term}
-              placeholder="What Group Boards sound interesting to you?"
+              placeholder="Search for a Group Board"
               onChange={event => this.handleChange(event.target.value)} 
             />
             <FormControl.Feedback />
@@ -47,9 +47,13 @@ class SearchBar extends Component {
 
 // Updates the input to a controlled component
   handleChange(term) {
+
+    _.debounce(() => this.props.setTerm(results), 33)
     this.setState({term});
     const results = fuzzySearch(term)
     this.props.setTerm(results)
-  _.debounce(() => this.props.setTerm(results), 33)
+  
   }
 }
+
+export default SearchBar;

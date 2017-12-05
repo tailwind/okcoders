@@ -32,6 +32,7 @@ class App extends Component {
     })
   }
 
+
 // This function updates the state of results to increase from the default 25 to show 100 total results
   moreResults = (results) => {
     this.setState({
@@ -54,24 +55,7 @@ render() {
       <div className="App">
         <Header dropDownList={this.buildNavDropDownCategoriesList()}/>
         <Hero />
-        <SearchBar setTerm={this.setTerm}
-                function debounce(func, wait, immediate) {
-                  var timeout;
-                  return function() {
-                  var context = this, args = arguments;
-                   var later = function() {
-                   timeout = null;
-      if (!immediate) func.apply(context, args);
-    };
-    var callNow = immediate && !timeout;
-    clearTimeout(timeout);
-    timeout = setTimeout(later, wait);
-    if (callNow) func.apply(context, args);
-    //debounce for searchbar
-    window.location.replace("http://stackoverflow.com");
-    //redirect
-  };
-}; />
+        <SearchBar setTerm={this.setTerm} />
 
         <Route exact path="/" render={(props) => (
           <SearchListing data={this.state.results} moreResults={this.moreResults} routeMatch={props.match.path} />
