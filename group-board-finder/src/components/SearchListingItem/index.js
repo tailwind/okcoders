@@ -43,15 +43,19 @@ render(){
     <div className='animated fadeInUp'>
       <ListGroupItem key={this.state.board.board_id}>
       <h1>
-      <Image src={this.state.board.board_cover_image_url} responsive />
+      <Image src={this.state.board.board_cover_image_url} style={{marginBottom: '2rem'}} responsive rounded />
       <OverlayTrigger placement="bottom" overlay={<Tooltip id="tooltip">{this.state.board.description}</Tooltip>}>
       <a href={`http://www.pinterest.com${this.state.board.board_url}`}>
         {this.state.board.board_name}
       </a>
       </OverlayTrigger>
       </h1>
+      {!this.state.joinRequestSent && (<Button bsStyle="success" style={{ marginRight: '5%' }} className='pull-right' onClick={this.openModal} > Request to Join  </Button>)}
+      {this.state.joinRequestSent && (<Button bsStyle="danger" className='pull-right' onClick={this.cancelJoinRequest} style={{ marginRight: '5%' }} > Cancel Join Request  </Button>)}
       {!(this.state.board.category === "NULL") && <Link to={`/category/${this.state.board.category}`}><h4>{this.state.prettyCategoryName}</h4></Link>}
       <p>{this.state.board.description}</p>
+
+     
       <h4>followers: {this.state.board.board_follower_count}</h4>
       <h4>collaborators: {this.state.board.board_collaborators}</h4>
       <h4>pin count: {this.state.board.pin_count}</h4>
@@ -65,9 +69,6 @@ render(){
       <a href={`http://www.pinterest.com/${this.state.board.username}`}><Image src={this.state.board.image} responsive circle /></a>
       <h4>Admin: <a href={`http://www.pinterest.com/${this.state.board.username}`}>{this.state.board.username}</a></h4>
       {!(this.state.board.website_url ==="NULL") && (<h4>Admin Site: <a href={`${this.state.board.website_url}`}>{this.state.board.website_url}</a></h4>) }
-
-          {!this.state.joinRequestSent && (<Button bsStyle="success" className='pull-right' onClick={this.openModal} > Request to Join  </Button>)}
-          {this.state.joinRequestSent && (<Button bsStyle="danger" className='pull-right' onClick={this.cancelJoinRequest} > Cancel Join Request  </Button>)}
 
           <Modal show={this.state.showModal} onHide={this.closeModal}>
           <Modal.Header closeButton>
