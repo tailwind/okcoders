@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { FormGroup, FormControl, ControlLabel } from 'react-bootstrap';
+import _ from 'lodash';
 import {fuzzySearch} from '../../api/datamanager';
 
 // This styles the input parent div
@@ -13,15 +14,15 @@ const divStyle = {
 
 class SearchBar extends Component {
   constructor(props) {
-		super(props);
+    super(props);
 
-		this.state = { 
+    this.state = { 
       term: ''
     };
   }
   
-	render() {
-		return (
+  render() {
+    return (
       <div className='row' style={{display: 'flex'}}>
         <div style={divStyle} className='col-md-6 animated fadeInUp'>
           <form>
@@ -41,15 +42,14 @@ class SearchBar extends Component {
         </form>
         </div>
       </div>
-		);
-	}
+    );
+  }
 
 // Updates the input to a controlled component
   handleChange(term) {
     this.setState({term});
     const results = fuzzySearch(term)
     this.props.setTerm(results)
-	}
+  _.debounce(() => this.props.setTerm(results), 300)
+  }
 }
-
-export default SearchBar;
