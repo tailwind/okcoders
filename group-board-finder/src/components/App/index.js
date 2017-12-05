@@ -34,6 +34,7 @@ class App extends Component {
     })
   }
 
+
 // This function updates the state of results to increase from the default 25 to show 100 total results
   moreResults = (results) => {
     this.setState({
@@ -57,6 +58,7 @@ render() {
         <Header dropDownList={this.buildNavDropDownCategoriesList()}/>
         <Hero searchArrayLength={this.state.arrayLength} />
         <SearchBar setTerm={this.setTerm} />
+
         <Route exact path="/" render={(props) => (
           <SearchListing data={this.state.results} moreResults={this.moreResults} routeMatch={props.match.path} />
         )} />
