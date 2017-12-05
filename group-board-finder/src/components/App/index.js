@@ -15,7 +15,8 @@ class App extends Component {
     super(props)
     this.state = {
       data: [],
-      results: []
+      results: [],
+      arrayLength: 0
     }
   }
 
@@ -28,7 +29,8 @@ class App extends Component {
   // This helper function is passed into the SearchBar component to pass the search results back up to the main App component
   setTerm = (results) => {
     this.setState({
-      results: results.top25
+      results: results.top25,
+      arrayLength: results.arrayLength
     })
   }
 
@@ -43,9 +45,9 @@ class App extends Component {
   buildNavDropDownCategoriesList() {
     // Load preformatted category list from datamanager
     const categories = getCategoryNames()
-      const categorieslist = categories.map((category, i) =>
+      const categorieslist = categories.map((category) =>
         // expression goes here:
-      <MenuItem eventKey={i}><Link to={"/category/" + category.value}>{category.name}</Link></MenuItem>
+        <MenuItem eventKey={category.value} href={"/category/" + category.value}>{category.name}</MenuItem>
       );
       return categorieslist;
     }
@@ -54,7 +56,7 @@ render() {
     return (
       <div className="App">
         <Header dropDownList={this.buildNavDropDownCategoriesList()}/>
-        <Hero />
+        <Hero searchArrayLength={this.state.arrayLength} />
         <SearchBar setTerm={this.setTerm} />
 
         <Route exact path="/" render={(props) => (
