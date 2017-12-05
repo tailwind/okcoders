@@ -38,6 +38,11 @@ const categories = [
   {name: 'Women\'s Fashion', value: 'womens_fashion'}
 ];
 
+function categoryNameFromValue(categoryValue) {
+  const lookup = _.find(categories, {'value':categoryValue})
+  return lookup ? lookup.name : "no match found"  
+}
+
 function loadBoardData(){
 	return data;
 }
@@ -115,3 +120,5 @@ export {getDataBySearchTerm}
 export {fuzzySearch}
 export {getCategoryNames}
 export {getMostFollowed}
+export {categoryNameFromValue}
+
