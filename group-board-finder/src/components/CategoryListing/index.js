@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import { ListGroup } from 'react-bootstrap';
 
 import SearchListingItem from '../SearchListingItem'
