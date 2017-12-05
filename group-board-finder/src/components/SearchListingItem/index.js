@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ListGroupItem, Modal, Button, Clearfix, Image, Tooltip, OverlayTrigger } from 'react-bootstrap';
+import { ListGroupItem, Modal, Button, Clearfix, Image, Tooltip, OverlayTrigger, FormGroup, InputGroup, FormControl, ControlLabel } from 'react-bootstrap';
 import _ from 'lodash';
 import Icon from './question.svg';
 import { Link } from 'react-router-dom';
@@ -71,11 +71,29 @@ render(){
 
           <Modal show={this.state.showModal} onHide={this.closeModal}>
           <Modal.Header closeButton>
-            <Modal.Title>Request to join this Group Board</Modal.Title>
+            <Modal.Title>Request to join {this.state.board.board_name} as a collaborator: </Modal.Title>
           </Modal.Header>
             <Modal.Body>
-              <textarea cols="50" rows="10" placeholder="Enter a message to the group board owner.">
-              </textarea>
+              <form>
+                <h2> Tell us about yourself: </h2>
+                <FormGroup>
+                  <InputGroup>
+                      <InputGroup.Addon>@</InputGroup.Addon>
+                      <FormControl type="text"/>
+                  </InputGroup>
+                </FormGroup>
+                <FormGroup>
+                <InputGroup>
+                      <InputGroup.Addon>Name:</InputGroup.Addon>
+                      <FormControl type="text"/>
+                  </InputGroup>
+                </FormGroup>
+                <FormGroup controlId="formControlsTextarea">
+                <ControlLabel>Enter a message for the Group Board owner:</ControlLabel>
+                <FormControl componentClass="textarea" placeholder="500 characters available" maxLength="500" />
+              </FormGroup>
+                
+              </form>
             </Modal.Body>
             <Modal.Footer>
               <Button onClick={this.closeModal}> Close </Button>
