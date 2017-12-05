@@ -46,6 +46,11 @@ function getCategoryNames() {
   return categories;
 }
 
+function getPrettyCategoryName(dirtyCategory){
+  const indexOfMatch = _.findIndex(categories, function(o) {return o.value === dirtyCategory});
+  if(indexOfMatch === -1) {return "N/A"}
+  else {return categories[indexOfMatch].name}
+  }
 
 //assumes category has been selected from the drop-down menu and will then match exactly
 function getDataByCategory(category){
@@ -115,3 +120,4 @@ export {getDataBySearchTerm}
 export {fuzzySearch}
 export {getCategoryNames}
 export {getMostFollowed}
+export {getPrettyCategoryName}
