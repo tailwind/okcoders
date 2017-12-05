@@ -50,6 +50,6 @@ class SearchBar extends Component {
     this.setState({term});
     const results = fuzzySearch(term)
     this.props.setTerm(results)
-  _.debounce(() => this.props.setTerm(results), 300)
+  _.debounce(() => this.props.setTerm(results), 33)
   }
 }
