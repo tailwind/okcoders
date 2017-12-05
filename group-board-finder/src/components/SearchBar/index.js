@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { FormGroup, FormControl, ControlLabel } from 'react-bootstrap';
-import _ from 'lodash';
 import {fuzzySearch} from '../../api/datamanager';
 
 // This styles the input parent div
@@ -17,14 +16,14 @@ class SearchBar extends Component {
 		super(props);
 
 		this.state = { 
-      term: 'food'
+      term: ''
     };
   }
   
 	render() {
 		return (
       <div className='row' style={{display: 'flex'}}>
-        <div style={divStyle} className='col-md-6'>
+        <div style={divStyle} className='col-md-6 animated fadeInUp'>
           <form>
           <FormGroup
             controlId="SearchBarForm"

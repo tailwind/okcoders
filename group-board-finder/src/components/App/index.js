@@ -8,7 +8,7 @@ import CategoryListing from '../CategoryListing/index';
 import Footer from '../Footer/index';
 import {loadBoardData, getCategoryNames, fuzzySearch, getMostFollowed, getDataByCategory} from '../../api/datamanager';
 
-import { Switch, Route, Link } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
 
 class App extends Component {
   constructor(props) {
@@ -22,13 +22,20 @@ class App extends Component {
   componentDidMount() {
     let boardData = loadBoardData();
     let initResults = getMostFollowed()
-    this.setState({ data: boardData, results: initResults });
+    this.setState({ data: boardData, results: initResults.top25 });
   }
 
   // This helper function is passed into the SearchBar component to pass the search results back up to the main App component
   setTerm = (results) => {
     this.setState({
-      results: results
+      results: results.top25
+    })
+  }
+
+// This function updates the state of results to increase from the default 25 to show 100 total results
+  moreResults = (results) => {
+    this.setState({
+      results: results.top100
     })
   }
 
@@ -48,11 +55,11 @@ render() {
         <Header dropDownList={this.buildNavDropDownCategoriesList()}/>
         <Hero />
         <SearchBar setTerm={this.setTerm} />
-        <Route exact path="/" render={() => (
-          <SearchListing data={this.state.results} />
+        <Route exact path="/" render={(props) => (
+          <SearchListing data={this.state.results} moreResults={this.moreResults} routeMatch={props.match.path} />
         )} />
         <Route exact path="/search/:term" render={(props) => (
-          <SearchListing data={fuzzySearch(props.match.params.term)} />
+          <SearchListing data={fuzzySearch(props.match.params.term)} moreResults={this.moreResults} routeMatch={props.match.path} />
         )} />
         <Route exact path="/category/:cat" render={(props) => (
           <CategoryListing data={getDataByCategory(props.match.params.cat)} />

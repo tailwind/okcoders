@@ -1,9 +1,9 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Group Board Finder",
+  "name": "Pinterest Group Board Finder",
   "icons": [
     {
-      "src": "favicon.ico",
+      "src": "https://d31a41pz1c3dkr.cloudfront.net/favicon.ico",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
     }

@@ -37,7 +37,8 @@ class SearchListingItem extends Component {
 
 render(){
   return (
-    <div>
+
+    <div className='animated fadeInUp'>
       <ListGroupItem key={this.state.board.board_id}>
       <h1>
       <Image src={this.state.board.board_cover_image_url} responsive />
@@ -54,7 +55,7 @@ render(){
       <h4>pin count: {this.state.board.pin_count}</h4>
       <h4>
        <OverlayTrigger placement="bottom" overlay={<Tooltip id="tooltip">We calculated this number by dividing the repins by total pins.</Tooltip>}>
-          <img src={Icon} style={{height: '1em'}} /> 
+          <img src={Icon} alt=""  style={{height: '1em'}} /> 
         </OverlayTrigger>
            Virality Score: {this.state.virality}
       </h4>     
