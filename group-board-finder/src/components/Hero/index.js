@@ -14,7 +14,8 @@ const jumbotronStyle = {
 
 const textStyle = {
   color: "white",
-  textAlign: "center"
+  textAlign: "center",
+  textShadow: '1px 1px #333'
 }
 
 class Hero extends Component {
