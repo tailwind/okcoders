@@ -1,12 +1,7 @@
 import React, {Component} from 'react';
 import { ListGroup } from 'react-bootstrap';
-<<<<<<< HEAD
-import SearchListingItem from '../SearchListingItem';
-
-=======
 
 import SearchListingItem from '../SearchListingItem'
->>>>>>> master
 
 class CategoryListing extends Component {
   constructor(props) {

@@ -65,7 +65,7 @@ class Hero extends Component {
               <h2 style={textStyle}>Request to join any Group Board with a click</h2>
               <br />
               <br />
-              <h3 style={textStyle}>[Number] Group Boards found related to {props.match.params.term}</h3>
+              <h3 style={textStyle}>{props.arrayLength} Group Boards found related to {props.match.params.term}</h3>
             </Jumbotron>
           </div>
         )}/>

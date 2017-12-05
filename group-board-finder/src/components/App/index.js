@@ -15,7 +15,8 @@ class App extends Component {
     super(props)
     this.state = {
       data: [],
-      results: []
+      results: [],
+      arrayLength: 0
     }
   }
 
@@ -28,7 +29,8 @@ class App extends Component {
   // This helper function is passed into the SearchBar component to pass the search results back up to the main App component
   setTerm = (results) => {
     this.setState({
-      results: results.top25
+      results: results.top25,
+      arrayLength: results.arrayLength
     })
   }
 
@@ -53,7 +55,7 @@ render() {
     return (
       <div className="App">
         <Header dropDownList={this.buildNavDropDownCategoriesList()}/>
-        <Hero />
+        <Hero searchArrayLength={this.state.arrayLength} />
         <SearchBar setTerm={this.setTerm} />
         <Route exact path="/" render={(props) => (
           <SearchListing data={this.state.results} moreResults={this.moreResults} routeMatch={props.match.path} />
