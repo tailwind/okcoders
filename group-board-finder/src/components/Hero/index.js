@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Jumbotron } from 'react-bootstrap';
 import { Route, Switch } from 'react-router-dom';
+import { categoryNameFromValue } from '../../api/datamanager';
 
 const containerStyle ={
     background: "url(" + "https://d31a41pz1c3dkr.cloudfront.net/img/heros/laptop-pinterest.indexed.jpg" + ")"
@@ -39,16 +40,16 @@ class Hero extends Component {
 
         {/* Display Hero on Category results page */}  
 
-        <Route exact path="/category/:categoryName/:categoryValue" render={(props) => (
+        <Route exact path="/category/:categoryName" render={(props) => (
           <div style={containerStyle}>
             <Jumbotron style={jumbotronStyle}>
-              <h1 style={textStyle}>Explore Top {props.match.params.categoryName} Pinterest Group Boards</h1>
+              <h1 style={textStyle}>Explore Top {categoryNameFromValue(props.match.params.categoryName)} Pinterest Group Boards</h1>
               <br />
               <br />
               <h2 style={textStyle}>Request to join any Group Board with a click</h2>
               <br />
               <br />
-        <h3 style={textStyle}> [Number] {props.match.params.categoryName} Group Boards found!</h3>
+              <h3 style={textStyle}>[Number] {categoryNameFromValue(props.match.params.categoryName)} Group Boards found!</h3>
             </Jumbotron>
           </div>
         )}/>

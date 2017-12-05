@@ -35,9 +35,9 @@ class App extends Component {
   buildNavDropDownCategoriesList() {
     // Load preformatted category list from datamanager
     const categories = getCategoryNames()
-      const categorieslist = categories.map((category, i) =>
+      const categorieslist = categories.map((category) =>
         // expression goes here:
-        <Link to={"/category/" + category.name + "/" + category.value}><MenuItem eventKey={i}><Link to={"/category/" + category.name + "/" + category.value}>{category.name}</Link></MenuItem></Link>
+        <MenuItem eventKey={category.value} href={"/category/" + category.value}>{category.name}</MenuItem>
       );
       return categorieslist;
     }
@@ -54,7 +54,7 @@ render() {
         <Route exact path="/search/:term" render={(props) => (
           <SearchListing data={fuzzySearch(props.match.params.term)} />
         )} />
-        <Route exact path="/category/:name/:cat" render={(props) => (
+        <Route exact path="/category/:cat" render={(props) => (
           <CategoryListing data={getDataByCategory(props.match.params.cat)} />
         )} />
         <Footer />

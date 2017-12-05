@@ -1,6 +1,7 @@
 import React from 'react';
 import { ListGroup } from 'react-bootstrap';
-import SearchListingItem from '../SearchListingItem'
+import SearchListingItem from '../SearchListingItem';
+
 
 const CategoryListing = (props) => {
   
