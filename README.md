@@ -1,3 +1,5 @@
+Watch Matt give a video walkthrough of the slides and demo by following [this link.](https://youtu.be/SjjN6EgwYbQ)
+
 Nov 8 2017 - Created JSON blob
 
 ## The Team
